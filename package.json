@@ -1,0 +1,122 @@
+{
+  "name": "cub-admin",
+  "version": "0.0.0-alpha.0",
+  "description": "从0开始的中后台管理系统搭建",
+  "keywords": [
+    "cub-admin",
+    "cub-admin-plus",
+    "vue-admin",
+    "admin",
+    "vue",
+    "element-plus"
+  ],
+  "homepage": "https://github.com/thelostword/cub-admin",
+  "bugs": {},
+  "license": "MIT",
+  "author": {
+    "name": "losting",
+    "email": "thelostword@163.com",
+    "url": "https://github.com/thelostword"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thelostword/cub-admin.git"
+  },
+  "files": [
+    "packages.json",
+    "README.md",
+    "LICENSE",
+    "dist"
+  ],
+  "type": "module",
+  "main": "./dist/core.js",
+  "module": "./dist/core.js",
+  "types": "./dist/core.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/core.d.ts",
+      "import": "./dist/core.js"
+    },
+    "./core": {
+      "types": "./dist/core.d.ts",
+      "import": "./dist/core.js"
+    },
+    "./components": {
+      "types": "./dist/components.d.ts",
+      "import": "./dist/components.js"
+    },
+    "./utils": {
+      "types": "./dist/utils.d.ts",
+      "import": "./dist/utils.js"
+    },
+    "./*": "./*"
+  },
+  "packageManager": "pnpm@8.6.0",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "husky install",
+    "dev": "pnpm preview dev",
+    "build": "vue-tsc && vite build",
+    "preview": "pnpm --filter=preview",
+    "commit": "git-cz",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
+  },
+  "dependencies": {
+    "color": "^4.2.3",
+    "mitt": "^3.0.1"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^17.6.6",
+    "@commitlint/config-conventional": "^17.6.6",
+    "@commitlint/cz-commitlint": "^17.5.0",
+    "@cub-admin/components": "workspace:^",
+    "@cub-admin/core": "workspace:^",
+    "@cub-admin/utils": "workspace:^",
+    "@element-plus/icons-vue": "^2.1.0",
+    "@rushstack/eslint-patch": "^1.3.2",
+    "@types/color": "^3.0.4",
+    "@types/lodash-es": "^4.17.9",
+    "@types/path-browserify": "^1.0.0",
+    "@unocss/reset": "^0.53.5",
+    "@vicons/material": "^0.12.0",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "@vue/eslint-config-airbnb-with-typescript": "^7.0.0",
+    "@vueuse/core": "^10.3.0",
+    "commitizen": "^4.3.0",
+    "element-plus": "^2.3.8",
+    "husky": "^8.0.3",
+    "lexical": "^0.12.0",
+    "lint-staged": "^13.2.3",
+    "lodash-es": "^4.17.21",
+    "path-browserify": "^1.0.1",
+    "sass": "^1.63.6",
+    "typescript": "^5.0.2",
+    "unocss": "^0.53.5",
+    "unplugin-vue-setup-extend-plus": "^1.0.0",
+    "vite": "^4.4.0",
+    "vite-plugin-dts": "^3.5.3",
+    "vite-svg-loader": "^4.0.0",
+    "vitepress": "1.0.0-rc.13",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.4",
+    "vue-tsc": "^1.8.3"
+  },
+  "peerDependencies": {
+    "@element-plus/icons-vue": "^2.1.0",
+    "@vueuse/core": "^10.3.0",
+    "element-plus": "^2.3.8",
+    "lodash-es": "^4.17.21",
+    "vue": "^3.2.0",
+    "vue-router": "^4.2.4"
+  },
+  "lint-staged": {
+    "{packages,preview}/**/*.{vue,ts,tsx,js,cjs,mjs}": "eslint --fix"
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/cz-commitlint"
+    }
+  }
+}

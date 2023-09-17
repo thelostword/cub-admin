@@ -1,0 +1,61 @@
+:root {
+  // 布局宽高
+  --cub-header-height: 50px;
+  --cub-sidebar-width: 200px;
+  --cub-tagsView-height: 38px;
+  --cub-logo-height: var(--cub-header-height);
+
+  // page
+  --cub-page-bg-color: #f2f3f5;
+
+  // header
+  --cub-header-bg-color: #24292f;
+  --cub-header-text-color: white;
+
+  // logo
+  --cub-logo-bg-color: var(--cub-header-bg-color);
+  --cub-logo-text-color: var(--cub-header-text-color);
+
+  // sidebar
+  --cub-sidebar-bg-color: white;
+  --cub-sidebar-shadow-color: rgba(0,0,0,.08);
+
+  // tagsView
+  --cub-tagsView-bg-color: white;
+  --cub-tagsView-shadow-color: rgba(0,0,0,.08);
+
+  --cub-tagsView-text-color: var(--el-text-color-primary);
+  --cub-tagsView-item-bg-color: var(--el-color-info-light-8);
+  --cub-tagsView-item-text-color: var(--cub-tagsView-text-color);
+  --cub-tagsView-item-active-bg-color: var(--el-color-primary);
+  --cub-tagsView-item-active-text-color: var(--el-color-white);
+
+  // section
+  --cub-section-bg-color: white;
+
+  // 其他
+  --cub-transition-timing-function: cubic-bezier(.4, 0, .2, 1);
+  --cub-transition-duration: .28s;
+  --cub-transition: var(--cub-transition-duration) var(--cub-transition-timing-function);
+  --cub-transition-all: all var(--cub-transition-duration) var(--cub-transition-timing-function);
+}
+
+html.dark {
+  // page
+  --cub-page-bg-color: #010409;
+
+  // header
+  --cub-header-bg-color: #010409;
+  --cub-header-text-color: white;
+
+  // sidebar
+  --cub-sidebar-bg-color: #0D1117;
+  --cub-sidebar-shadow-color: rgba(255,255,255,.2);
+
+  // tagsView
+  --cub-tagsView-bg-color: #161b22;
+  --cub-tagsView-shadow-color: rgba(255,255,255,.2);
+
+  // section
+  --cub-section-bg-color: #161b22;
+}

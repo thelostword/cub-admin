@@ -1,0 +1,10 @@
+{
+  "name": "@cub-admin/components",
+  "version": "1.0.0",
+  "description": "",
+  "module": "./index.ts",
+  "types": "./index.ts",
+  "keywords": [],
+  "author": "losting",
+  "license": "MIT"
+}

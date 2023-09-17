@@ -1,0 +1,13 @@
+{
+  "name": "preview",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
