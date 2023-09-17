@@ -1,4 +1,4 @@
-name: Deploy to New Branch and GitHub Pages
+name: Deploy GitHub Pages
 
 on:
   push:
@@ -18,7 +18,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 'lasted'
+          node-version: 'latest'
 
       - uses: pnpm/action-setup@v2
         name: Install pnpm
