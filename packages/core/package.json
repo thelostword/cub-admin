@@ -1,0 +1,15 @@
+{
+  "name": "@cub-admin/core",
+  "version": "0.0.0",
+  "description": "",
+  "type": "module",
+  "module": "./index.ts",
+  "types": "./index.ts",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc && vite build"
+  },
+  "keywords": [],
+  "author": "losting",
+  "license": "MIT"
+}

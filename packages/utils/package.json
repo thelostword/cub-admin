@@ -1,0 +1,12 @@
+{
+  "name": "@cub-admin/utils",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "module": "./index.ts",
+  "types": "./index.ts",
+  "scripts": {},
+  "keywords": [],
+  "author": "losting",
+  "license": "MIT"
+}
