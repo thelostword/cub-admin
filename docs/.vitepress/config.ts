@@ -1,12 +1,13 @@
 import { defineConfig } from 'vitepress'
 import { resolve } from 'node:path'
-import { version } from '../../package.json'
+import { version, name } from '../../package.json'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
   title: "Cub Admin",
   description: "中后台系统基础库",
   outDir: resolve(__dirname, '../../dist-docs'),
+  base: `/${name}/`,
   locales: {
     root: {
       label: '简体中文',
