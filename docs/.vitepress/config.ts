@@ -6,7 +6,7 @@ import { version } from '../../package.json'
 export default defineConfig({
   title: "Cub Admin",
   description: "中后台系统基础库",
-  outDir: resolve(__dirname, '../../docs-dist'),
+  outDir: resolve(__dirname, '../../dist-docs'),
   locales: {
     root: {
       label: '简体中文',
