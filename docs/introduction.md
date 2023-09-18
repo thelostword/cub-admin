@@ -14,5 +14,5 @@ Cub Admin 是一个中后台系统前端基础库。
 - Node.js `latest`
 
 ## 样板库
-[cub-admin-template](https://github.com/thelostword/cub-admin-template) 基于 Cub Admin 搭建的后台管理系统模板。
+[cub-admin-template](https://github.com/thelostword/cub-admin-template) 基于 Cub Admin 搭建的后台管理系统模板
 
