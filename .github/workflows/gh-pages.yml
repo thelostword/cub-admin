@@ -27,14 +27,12 @@ jobs:
           version: latest
           run_install: true
 
-      - run: pnpm docs:build
+      - run: pnpm run docs:build
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
-          publish_dir: ./dist-docs
-          github_token: ${{ secrets.REPO_TOKEN }}
-          user_name: ${{ secrets.USER_NAME }}
-          user_email: ${{ secrets.USER_EMAIL }}
-          commit_message: Automated deployment
-
+          token: ${{ secrets.REPO_TOKEN }}
+          branch: gh-pages
+          folder: dist-docs
+          force: true
