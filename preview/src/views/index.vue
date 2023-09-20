@@ -25,10 +25,13 @@
   </div>
 </template>
 
-<script setup lang="ts" name="PageHome">
+<script setup lang="ts">
 import { onMounted } from 'vue';
 import { CubPageHeader } from '@cub-admin/components';
 
+defineOptions({
+  name: 'PageHome',
+});
 onMounted(() => {
 
 });

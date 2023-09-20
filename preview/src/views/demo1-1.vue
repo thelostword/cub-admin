@@ -5,9 +5,12 @@
   </div>
 </template>
 
-<script setup lang="ts" name="PageDemo1-1">
+<script setup lang="ts">
 import { onMounted, ref } from 'vue';
 
+defineOptions({
+  name: 'PageDemo11',
+});
 const value = ref('');
 
 onMounted(() => {

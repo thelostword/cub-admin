@@ -4,9 +4,12 @@
   </div>
 </template>
 
-<script setup lang="ts" name="PageDemo4">
+<script setup lang="ts">
 import { onMounted } from 'vue';
 
+defineOptions({
+  name: 'PageDemo4',
+});
 onMounted(() => {
 
 });

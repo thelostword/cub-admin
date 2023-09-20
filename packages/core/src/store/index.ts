@@ -14,8 +14,8 @@ export const cache: Cache = reactive<Cache>({
   dynamic: [],
 });
 
-export default {
-  tags,
-  cache,
-  menus,
-};
+// export default {
+//   tags,
+//   cache,
+//   menus,
+// };

@@ -1,36 +1,38 @@
 import type { RouteLocationNormalized } from 'vue-router';
-import store from '../store';
+import { tags } from '../store';
 
 export const addTag = (route: RouteLocationNormalized) => {
   if (!route.meta?.title || !route.name) return;
   if (route.meta?.noTag) return;
-  if (store.tags.some(({ path }) => path === route.path)) return;
+  if (tags.some(({ path }) => path === route.path)) return;
   const currentIndex = +(route.meta.affix ?? 999);
 
   if (route.meta.affix === true || typeof route.meta.affix === 'number') {
-    if (store.tags.length === 0 || currentIndex <= +(store.tags[0].meta.affix ?? 999)) {
-      store.tags.unshift(route);
+    if (tags.length === 0 || currentIndex <= +(tags[0].meta.affix ?? 999)) {
+      tags.unshift(route);
     } else {
-      const insertIndex = store.tags.findIndex((item) => +(item.meta.affix ?? 999) > currentIndex);
+      const insertIndex = tags.findIndex((item) => +(item.meta.affix ?? 999) > currentIndex);
       if (insertIndex === -1) {
-        store.tags.push(route);
+        tags.push(route);
       } else {
-        store.tags.splice(insertIndex, 0, route);
+        tags.splice(insertIndex, 0, route);
       }
     }
-  } else store.tags.push(route);
+  } else tags.push(route);
 };
 
 export const removeTag = (route: RouteLocationNormalized) => {
   if (route.meta?.affix) return;
-  const index = store.tags.findIndex(({ path }) => path === route.path);
-  store.tags.splice(index >>> 0, 1);
+  const index = tags.findIndex(({ path }) => path === route.path);
+  tags.splice(index >>> 0, 1);
 };
 
 export const removeOtherTags = (route: RouteLocationNormalized) => {
-  store.tags = store.tags.filter(({ path, meta }) => !!meta?.affix || path === route.path);
+  const newTags = tags.filter(({ path, meta }) => !!meta?.affix || path === route.path);
+  tags.splice(0, tags.length, ...newTags);
 };
 
 export const clearTags = () => {
-  store.tags = store.tags.filter(({ meta }) => !!meta?.affix);
+  const newTags = tags.filter(({ meta }) => !!meta?.affix);
+  tags.splice(0, tags.length, ...newTags);
 };

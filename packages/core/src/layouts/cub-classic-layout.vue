@@ -54,22 +54,26 @@
   </div>
 </template>
 
-<script setup lang="ts" name="CubLayout">
+<script setup lang="ts">
 import { provide } from 'vue';
-import CubMenu from './components/cub-menu/cub-menu.vue';
-import type { LayoutProps } from './layout-props';
-import { layoutPropsDefaults } from './layout-props';
-import { layoutProvide, CubInjectionKey } from './layout-provider';
-import CollapseBtn from './components/collapse-btn/collapse-btn.vue';
-import CubTagsView from './components/cub-tags-view/cub-tags-view.vue';
-import { cache } from './store';
-import { useCache } from './hooks/use-cache';
-import { isCollapse } from './state/collapse';
+import CubMenu from '../components/cub-menu/cub-menu.vue';
+import type { LayoutProps } from '../layout-props';
+import { layoutPropsDefaults } from '../layout-props';
+import { layoutProvide, CubInjectionKey } from '../layout-provider';
+import CollapseBtn from '../components/collapse-btn/collapse-btn.vue';
+import CubTagsView from '../components/cub-tags-view/cub-tags-view.vue';
+import { cache } from '../store';
+import { useCache } from '../hooks/use-cache';
+import { isCollapse } from '../state/collapse';
 
 const props = withDefaults(defineProps<LayoutProps>(), layoutPropsDefaults);
 provide(CubInjectionKey, layoutProvide);
 
 useCache(props.noCache);
+
+defineOptions({
+  name: 'CubClassicLayout',
+});
 </script>
 
 <style lang="scss" scoped>

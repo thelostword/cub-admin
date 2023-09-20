@@ -11,7 +11,7 @@
       @scroll="scrollLeft = $event.scrollLeft"
     >
       <li
-        v-for="item in store.tags"
+        v-for="item in tags"
         :key="item.fullPath"
         tabindex="0"
         class="cub-tags-view-item group cub-flex-shrink-0 cub-h-full cub-px-2 cub-py-1 cub-flex cub-items-center cub-justify-center cub-gap-x-1 cub-cursor-pointer cub-select-none"
@@ -69,12 +69,12 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import {
-  ElScrollbar, ElIcon, ElDropdown, ElDropdownItem, ElDropdownMenu, ElMessage,
+  ElScrollbar, ElIcon, ElDropdown, ElDropdownItem, ElDropdownMenu,
 } from 'element-plus';
 import { MoreVertFilled } from '@vicons/material';
 import { Close } from '@element-plus/icons-vue';
 import { useRouter } from 'vue-router';
-import store from '../../store';
+import { tags } from '../../store';
 import { useTagsView } from '../../hooks/use-tags-view';
 
 const {
@@ -103,7 +103,6 @@ onMounted(() => {
 });
 
 const handleCommand = (command: string) => {
-  ElMessage(`click on item ${command}`);
   switch (command) {
     case 'close':
       onClose();

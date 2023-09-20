@@ -7,7 +7,7 @@
       :default-active="defaultActive"
       @select="onSelected"
     >
-      <CubMenuItem v-for="menu in store.menus" :key="menu.path" :menu="menu" />
+      <CubMenuItem v-for="menu in menus" :key="menu.path" :menu="menu" />
     </ElMenu>
   </ElScrollbar>
 </template>
@@ -19,7 +19,7 @@ import { useRouter } from 'vue-router';
 import { isURL } from '@cub-admin/utils';
 import { isCollapse } from '../../state/collapse';
 import CubMenuItem from './cub-menu-item.vue';
-import store from '../../store';
+import { menus } from '../../store';
 
 const router = useRouter();
 const defaultActive = computed(() => {
