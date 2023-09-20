@@ -20,5 +20,6 @@ export const NotFoundPage: RouteRecordRaw = {
   meta: {
     title: '404',
     noCache: true,
+    noTag: true,
   },
 };

@@ -10,6 +10,7 @@ import { addTag } from './tags';
 
 let CubLayout: Component;
 let router: Router;
+const BasicRouteName = 'CubBasicRoutes';
 
 // ------------------------- routes 配置处理方法 START -----------------------------
 const flattenRoutes = (routes: (CubRouteRecordRaw | CubSubRouteRecordRaw)[], parentPath: string) => routes.reduce((result: (CubRouteRecordRaw | CubSubRouteRecordRaw)[], route) => {
@@ -45,16 +46,16 @@ export const setupCubAdmin = (options: SetupOptions) => {
   router.addRoute({
     path: '/',
     component: CubLayout,
-    name: 'CubBasicRoutes',
+    name: BasicRouteName,
     meta: {
       title: 'System Basic Routes',
     },
     children: [],
   });
   basicPages.forEach((route) => {
-    router.addRoute(route);
+    router.addRoute(BasicRouteName, route);
   });
-  router.addRoute(NotFoundPage);
+  router.addRoute(BasicRouteName, NotFoundPage);
 
   const routes = router.getRoutes();
   const affixRoutes = routes.filter((route) => route.meta?.affix === true || typeof route.meta?.affix === 'number');
@@ -110,7 +111,7 @@ export const registerRoutes = (...args: RegisterOptions) => new Promise((resolve
     };
     router.removeRoute(NotFoundPage.name!);
     addRoutes(transformRoutes(allRoutes));
-    router.addRoute(NotFoundPage);
+    router.addRoute(BasicRouteName, NotFoundPage);
 
     generateMenus(name, allRoutes);
 
