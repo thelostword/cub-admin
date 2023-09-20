@@ -5,13 +5,15 @@
 <h1 align="center">Cub Admin</h1>
 <p align="center">中后台管理系统前端基础库，基于Vue、vue-router、element-plus构建。</p>
 
+[【在线预览】cub-admin-template](https://thelostword.github.io/cub-admin-template/)
+
 ### 如何使用
 
 ``` sh
 pnpm add cub-admin
 
 # 安装前置依赖
-pnpm add vue vue-router element-plus @element-plus/icons-vue @vueuse/core lodash-es
+pnpm add vue vue-router element-plus
 ```
 
 main.js
@@ -50,5 +52,5 @@ import { CubLayout } from 'cub-admin';
 - [ ] 主题样式切换
 - [x] 自定义主题样式
 - [ ] i18n
-- [ ] 多布局类型
+- [ ] 多布局
 
