@@ -1,20 +1,18 @@
 <template>
-  <ElScrollbar height="calc(100vh - var(--cub-logo-height))" wrap-class="cub-menu-wrap" view-class="cub-menu-view">
-    <ElMenu
-      class="cub-menu cub-border-none"
-      :collapse="isCollapse"
-      :collapse-transition="false"
-      :default-active="defaultActive"
-      @select="onSelected"
-    >
-      <CubMenuItem v-for="menu in menus" :key="menu.path" :menu="menu" />
-    </ElMenu>
-  </ElScrollbar>
+  <ElMenu
+    class="cub-menu cub-border-none"
+    :collapse="isCollapse"
+    :collapse-transition="false"
+    :default-active="defaultActive"
+    @select="onSelected"
+  >
+    <CubMenuItem v-for="menu in menus" :key="menu.path" :menu="menu" />
+  </ElMenu>
 </template>
 
 <script setup lang="ts">
 import { computed } from 'vue';
-import { ElScrollbar, ElMenu } from 'element-plus';
+import { ElMenu } from 'element-plus';
 import { useRouter } from 'vue-router';
 import { isURL } from '@cub-admin/utils';
 import { isCollapse } from '../../state/collapse';

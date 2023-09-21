@@ -7,7 +7,7 @@ type Cache = {
   dynamic: string[];
 };
 
-export const tags: RouteLocationNormalized[] = reactive<RouteLocationNormalized[]>([]);
+export const tags: RouteLocationNormalized[] = shallowReactive<RouteLocationNormalized[]>([]);
 export const menus: MenuRecord[] = shallowReactive<MenuRecord[]>([]);
 export const cache: Cache = reactive<Cache>({
   permanent: [],

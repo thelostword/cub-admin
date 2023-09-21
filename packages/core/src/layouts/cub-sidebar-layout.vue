@@ -10,8 +10,13 @@
           </text>
         </slot>
       </div>
-      <!-- 导航菜单 -->
-      <CubMenu />
+
+      <!-- 侧边导航菜单 -->
+      <ElScrollbar height="calc(100vh - var(--cub-logo-height))" wrap-class="cub-menu-wrap" view-class="cub-menu-view">
+        <slot name="sideMenu">
+          <CubSideMenu />
+        </slot>
+      </ElScrollbar>
     </div>
 
     <div class="cub-flex-1 cub-overflow-hidden">
@@ -30,7 +35,12 @@
       </header>
 
       <!-- tagsView 导航 -->
-      <CubTagsView v-if="!noTagsView" />
+      <template v-if="!noTagsView">
+        <div v-if="$slots.tagsView" class="cub-tags">
+          <slot name="tagsView" />
+        </div>
+        <CubTagsView v-else />
+      </template>
 
       <!-- 内容区 -->
       <ElScrollbar :height="`calc(100vh - var(--cub-header-height)${noTagsView ? '' : ' - var(--cub-tagsView-height)'}`" tag="main" view-class="cub-main">
@@ -56,7 +66,8 @@
 
 <script setup lang="ts">
 import { provide } from 'vue';
-import CubMenu from '../components/cub-menu/cub-menu.vue';
+import { ElScrollbar } from 'element-plus';
+import CubSideMenu from '../components/cub-menu/cub-menu.vue';
 import type { LayoutProps } from '../layout-props';
 import { layoutPropsDefaults } from '../layout-props';
 import { layoutProvide, CubInjectionKey } from '../layout-provider';

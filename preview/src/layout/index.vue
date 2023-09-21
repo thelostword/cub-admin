@@ -11,6 +11,14 @@
       <!-- <CubBreadcrumb /> -->
     </template>
 
+    <!-- <template #tagsView>
+      自定义tagsView
+    </template>
+
+    <template #sideMenu>
+      自定义侧边菜单
+    </template> -->
+
     <template #headerTools>
       <CubModeSwitch />
       <CubPrimaryColorChange />
