@@ -6,17 +6,20 @@ import type {
 import { menus } from '../store';
 
 // ------------------------- 菜单处理逻辑 START -----------------------------
+let count = 0;
 const routeToMenu = (route: CubRouteRecordRaw | CubSubRouteRecordRaw, basePath = '/'): MenuRecord => {
   const children: MenuRecord[] = [];
   if (route.children?.length) {
-    if (route.children.length === 1) return routeToMenu(route.children[0], resolvePath(route.path, basePath));
+    if (route.children.length === 1) return routeToMenu(route.children[0], resolvePath(basePath, route.path));
     for (const scope of route.children) {
       if (!scope.meta?.onlyRoute) {
-        children.push(routeToMenu(scope, resolvePath(route.path, basePath)));
+        children.push(routeToMenu(scope, resolvePath(basePath, route.path)));
       }
     }
   }
-  const path = resolvePath(route.path, basePath);
+  let path = resolvePath(basePath, route.path);
+  path = children.length ? `${path}|${count += 1}` : path;
+
   return {
     name: route.meta?.title || path,
     path,

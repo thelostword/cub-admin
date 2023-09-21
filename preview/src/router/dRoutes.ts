@@ -31,7 +31,8 @@ export const routes: CubRouteRecordRaw[] = [
         },
       },
       {
-        path: 'demo5',
+        // 空路径测试
+        path: '',
         meta: { title: '三级路由' },
         children: [
           {

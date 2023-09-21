@@ -44,6 +44,7 @@ import { CubLayout } from 'cub-admin';
 
 ### 功能
 - [x] 经典布局
+- [ ] 多布局
 - [x] 动态路由/菜单
 - [x] 页面缓存
 - [x] tagsView
@@ -51,6 +52,5 @@ import { CubLayout } from 'cub-admin';
 - [x] 主题色修改
 - [ ] 主题样式切换
 - [x] 自定义主题样式
+- [ ] 多UI库支持
 - [ ] i18n
-- [ ] 多布局
-
