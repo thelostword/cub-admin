@@ -12,6 +12,12 @@
   --cub-header-bg-color: #24292f;
   --cub-header-text-color: white;
 
+  // top menu
+  --cub-top-menu-item-hover-bg-color: var(--el-color-primary);
+  --cub-top-menu-item-hover-text-color: white;
+  --cub-top-menu-item-active-bg-color: transparent;
+  --cub-top-menu-item-active-text-color: var(--el-color-primary);
+
   // logo
   --cub-logo-bg-color: var(--cub-header-bg-color);
   --cub-logo-text-color: var(--cub-header-text-color);

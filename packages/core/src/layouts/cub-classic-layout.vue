@@ -1,5 +1,5 @@
 <template>
-  <div class="cub-layout cub-w-screen cub-h-screen cub-overflow-hidden cub-flex">
+  <div class="cub-classic-layout cub-w-screen cub-h-screen cub-overflow-hidden cub-flex">
     <!-- 侧边栏 -->
     <div class="cub-sidebar cub-flex-shrink-0 cub-select-none cub-shadow-sm cub-overflow-hidden" :class="{ 'cub-sidebar--collapse': isCollapse }">
       <!-- LOGO -->
@@ -12,19 +12,17 @@
       </div>
 
       <!-- 侧边导航菜单 -->
-      <ElScrollbar height="calc(100vh - var(--cub-logo-height))" wrap-class="cub-menu-wrap" view-class="cub-menu-view">
-        <slot name="sideMenu">
-          <CubSideMenu />
-        </slot>
-      </ElScrollbar>
+      <slot name="sideMenu">
+        <CubSideMenu />
+      </slot>
     </div>
 
     <div class="cub-flex-1 cub-overflow-hidden">
       <!-- HEADER -->
       <header class="cub-header cub-flex cub-items-center cub-justify-between cub-px-2 cub-gap-x-5 cub-select-none">
         <CollapseBtn />
-        <div class="cub-flex-1 cub-flex cub-items-center cub-justify-end cub-gap-x-5">
-          <div class="cub-flex-1">
+        <div class="cub-flex-1 cub-h-full cub-flex cub-items-center cub-justify-end cub-gap-x-5">
+          <div class="cub-flex-1 cub-h-full">
             <slot name="headerLeft" />
           </div>
           <div class="cub-header-tools cub-flex cub-items-center cub-gap-x-3">
@@ -45,19 +43,7 @@
       <!-- 内容区 -->
       <ElScrollbar :height="`calc(100vh - var(--cub-header-height)${noTagsView ? '' : ' - var(--cub-tagsView-height)'}`" tag="main" view-class="cub-main">
         <slot name="mainBefore" />
-        <router-view v-slot="{ Component, route }">
-          <transition
-            name="fade"
-            mode="out-in"
-          >
-            <keep-alive :include="cache.dynamic">
-              <component
-                :is="Component"
-                :key="route.path"
-              />
-            </keep-alive>
-          </transition>
-        </router-view>
+        <CubAppMain />
         <slot name="mainAfter" />
       </ElScrollbar>
     </div>
@@ -67,19 +53,20 @@
 <script setup lang="ts">
 import { provide } from 'vue';
 import { ElScrollbar } from 'element-plus';
-import CubSideMenu from '../components/cub-menu/cub-menu.vue';
+import CubSideMenu from '../components/cub-side-menu/cub-side-menu.vue';
+import CubAppMain from '../components/cub-app-main/cub-app-main.vue';
 import type { LayoutProps } from '../layout-props';
 import { layoutPropsDefaults } from '../layout-props';
 import { layoutProvide, CubInjectionKey } from '../layout-provider';
 import CollapseBtn from '../components/collapse-btn/collapse-btn.vue';
 import CubTagsView from '../components/cub-tags-view/cub-tags-view.vue';
-import { cache } from '../store';
 import { useCache } from '../hooks/use-cache';
 import { isCollapse } from '../state/collapse';
 
 const props = withDefaults(defineProps<LayoutProps>(), layoutPropsDefaults);
 provide(CubInjectionKey, layoutProvide);
 
+// eslint-disable-next-line vue/no-setup-props-destructure
 useCache(props.noCache);
 
 defineOptions({
@@ -87,19 +74,6 @@ defineOptions({
 });
 </script>
 
-<style lang="scss" scoped>
-.fade {
-  &-leave-active,
-  &-enter-active {
-    transition: all .5s ease;
-  }
-  &-enter-from {
-    opacity: 0;
-    transform: translateX(-30px);
-  }
-  &-leave-to {
-    opacity: 0;
-    transform: translateX(30px);
-  }
-}
+<style lang="scss">
+@import "../assets/layout/cub-classic-layout.scss";
 </style>

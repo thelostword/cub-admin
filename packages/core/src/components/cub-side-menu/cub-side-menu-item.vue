@@ -7,7 +7,7 @@
       <span>{{ menu.name }}</span>
       <ElBadge v-if="menu.badge" v-bind="menu.badge" class="cub-menu-badge cub-inline-flex" />
     </template>
-    <CubMenuItem v-for="childMenu in menu.children" :key="childMenu.path" :menu="childMenu" />
+    <CubSideMenuItem v-for="childMenu in menu.children" :key="childMenu.path" :menu="childMenu" />
   </ElSubMenu>
 
   <ElMenuItem v-else :index="menu.path">
@@ -25,7 +25,9 @@
 import {
   ElMenuItem, ElSubMenu, ElIcon, ElBadge,
 } from 'element-plus';
-import type { MenuItemProps } from './cub-menu-props';
+import type { MenuRecord } from '../../typescript';
 
-defineProps<MenuItemProps>();
+defineProps<{
+  menu: MenuRecord;
+}>();
 </script>

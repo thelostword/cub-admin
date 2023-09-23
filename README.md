@@ -48,9 +48,8 @@ import { CubLayout } from 'cub-admin';
 - [x] 动态路由/菜单
 - [x] 页面缓存
 - [x] tagsView
-- [x] 模式切换
+- [x] 主题模式切换
 - [x] 主题色修改
 - [ ] 主题样式切换
 - [x] 自定义主题样式
-- [ ] 多UI库支持
 - [ ] i18n

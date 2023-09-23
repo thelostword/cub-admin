@@ -1,3 +1,8 @@
-import CubSidebarLayout from './cub-sidebar-layout.vue';
+import CubClassicLayout from './cub-classic-layout.vue';
+import CubTopNavigationLayout from './cub-top-navigation-layout.vue';
 
-export { CubSidebarLayout, CubSidebarLayout as CubLayout };
+export {
+  CubClassicLayout,
+  CubClassicLayout as CubLayout,
+  CubTopNavigationLayout,
+};

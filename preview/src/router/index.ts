@@ -1,5 +1,5 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import { setupCubAdmin, registerRoutes, unregisterRoutes } from '@cub-admin/core';
+import { setupCubAdmin, registerRoutes } from '@cub-admin/core';
 import routes from './routes';
 import { routes as dRoutes, routes1 } from './dRoutes';
 import CubLayout from '../layout/index.vue';
@@ -24,9 +24,9 @@ setTimeout(() => {
   });
 }, 3000);
 
-setTimeout(() => {
-  unregisterRoutes('demo');
-}, 5000);
+// setTimeout(() => {
+//   unregisterRoutes('demo');
+// }, 5000);
 
 let register = false;
 router.beforeEach(async (to) => {

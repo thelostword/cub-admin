@@ -23,14 +23,6 @@ export const routes: CubRouteRecordRaw[] = [
         },
       },
       {
-        path: '/demo/demo5/demo6/demo2/1111',
-        meta: {
-          title: 'Demo1-2',
-          icon: Plus,
-          onlyMenu: true,
-        },
-      },
-      {
         // 空路径测试
         path: '',
         meta: { title: '三级路由' },
@@ -45,39 +37,38 @@ export const routes: CubRouteRecordRaw[] = [
             },
           },
           {
-            path: 'demo6',
+            path: 'demo2/:id',
+            component: '/demo2.vue',
+            meta: {
+              title: 'Demo2',
+              icon: Plus,
+              sort: 1,
+              onlyRoute: true,
+            },
+          },
+          {
+            path: 'demo2/1111',
+            meta: {
+              title: 'Demo1-2',
+              icon: Plus,
+              onlyMenu: true,
+            },
+          },
+          {
+            path: 'demo2/2222?name=112&age=28',
             meta: {
               title: 'Demo1-1',
               icon: Plus,
+              onlyMenu: true,
             },
-            children: [
-              {
-                path: 'demo2/:id',
-                component: '/demo2.vue',
-                meta: {
-                  title: 'Demo2',
-                  icon: Plus,
-                  sort: 1,
-                  onlyRoute: true,
-                },
-              },
-              {
-                path: 'demo2/2222?name=112&age=28',
-                meta: {
-                  title: 'Demo1-1',
-                  icon: Plus,
-                  onlyMenu: true,
-                },
-              },
-              {
-                path: 'demo2/1111',
-                meta: {
-                  title: 'Demo1-2',
-                  icon: Plus,
-                  onlyMenu: true,
-                },
-              },
-            ],
+          },
+          {
+            path: 'demo2/33333',
+            meta: {
+              title: 'Demo1-2',
+              icon: Plus,
+              onlyMenu: true,
+            },
           },
         ],
       },
@@ -100,5 +91,32 @@ export const routes1: CubRouteRecordRaw[] = [
       icon: Plus,
       sort: -1,
     },
+  },
+  {
+    path: '/test',
+    component: 'CubLayout',
+    meta: {
+      title: 'test页面',
+      icon: Plus,
+      sort: 7,
+    },
+    children: [
+      {
+        path: 'demo1',
+        component: '/demo3.vue',
+        meta: {
+          title: 'Demo1',
+          icon: Plus,
+        },
+      },
+      {
+        path: 'demo3',
+        meta: {
+          title: 'Demo12',
+          icon: Plus,
+          onlyMenu: true,
+        },
+      },
+    ],
   },
 ];

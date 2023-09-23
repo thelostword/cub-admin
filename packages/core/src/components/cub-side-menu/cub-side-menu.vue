@@ -1,13 +1,15 @@
 <template>
-  <ElMenu
-    class="cub-menu cub-border-none"
-    :collapse="isCollapse"
-    :collapse-transition="false"
-    :default-active="defaultActive"
-    @select="onSelected"
-  >
-    <CubMenuItem v-for="menu in menus" :key="menu.path" :menu="menu" />
-  </ElMenu>
+  <ElScrollbar height="calc(100vh - var(--cub-logo-height))" wrap-class="cub-menu-wrap" view-class="cub-menu-view">
+    <ElMenu
+      class="cub-menu cub-border-none"
+      :collapse="isCollapse"
+      :collapse-transition="false"
+      :default-active="defaultActive"
+      @select="onSelected"
+    >
+      <CubSideMenuItem v-for="menu in (isMixedMenu ? subMenus : menus)" :key="menu.path" :menu="menu" />
+    </ElMenu>
+  </ElScrollbar>
 </template>
 
 <script setup lang="ts">
@@ -16,8 +18,9 @@ import { ElMenu } from 'element-plus';
 import { useRouter } from 'vue-router';
 import { isURL } from '@cub-admin/utils';
 import { isCollapse } from '../../state/collapse';
-import CubMenuItem from './cub-menu-item.vue';
-import { menus } from '../../store';
+import CubSideMenuItem from './cub-side-menu-item.vue';
+import { menus, subMenus } from '../../store';
+import { isMixedMenu } from '../../hooks/use-mixed-menu';
 
 const router = useRouter();
 const defaultActive = computed(() => {

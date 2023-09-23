@@ -1,6 +1,7 @@
 import type { RouteLocationNormalized } from 'vue-router';
 import { cache } from '../store';
 
+// TODO 带参数缓存
 export const addCache = (route: RouteLocationNormalized) => {
   if (!route.name) return;
   if (route.meta?.noCache) return;

@@ -1,17 +1,17 @@
 <template>
   <div>
-    demo2
+    <div>缓存测试</div>
+    <input v-model="value" />
   </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { ref } from 'vue';
 
 defineOptions({
   name: 'PageDemo2',
 });
-onMounted(() => {
 
-});
+const value = ref('');
 
 </script>
