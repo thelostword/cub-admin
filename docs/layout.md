@@ -23,7 +23,6 @@ import { CubLayout } from 'cub-admin';
 
 
 ## Slots
-
 | name | 说明 |
 | --- | --- |
 | logo | 系统logo，参数为 `{ isCollapse }` |

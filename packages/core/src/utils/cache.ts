@@ -1,31 +1,24 @@
-import type { RouteLocationNormalized } from 'vue-router';
-import { cache } from '../store';
+import { cache, wrapperMap } from '../store';
 
-// TODO 带参数缓存
-export const addCache = (route: RouteLocationNormalized) => {
-  if (!route.name) return;
-  if (route.meta?.noCache) return;
-  if (cache.dynamic.includes(route.name as string)) return;
-  cache.dynamic.push(route.name as string);
-
-  if (route.meta?.affix && !cache.permanent.includes(route.name as string)) {
-    cache.permanent.push(route.name as string);
-  }
+export const addCache = (fullPath: string) => {
+  if (cache.includes(fullPath)) return;
+  cache.push(fullPath);
 };
 
-export const removeCache = (route: RouteLocationNormalized) => {
-  if (!route.name) return;
-  if (cache.permanent.includes(route.name as string)) return;
-  const ndx = cache.dynamic.findIndex((name) => name === route.name);
-  cache.dynamic.splice(ndx >>> 0, 1);
+export const removeCache = (fullPath: string) => {
+  const ndx = cache.findIndex((path) => path === fullPath);
+  cache.splice(ndx >>> 0, 1);
+  wrapperMap.delete(fullPath);
 };
 
-export const removeOtherCaches = (route: RouteLocationNormalized) => {
-  if (!route.name) return;
-  if (cache.permanent.includes(route.name as string)) cache.dynamic = [...cache.permanent];
-  else cache.dynamic = [...cache.permanent, route.name as string];
+export const removeOtherCaches = (fullPath: string) => {
+  cache.forEach((path) => {
+    if (path !== fullPath) wrapperMap.delete(path);
+  });
+  cache.splice(0, cache.length, fullPath);
 };
 
 export const clearCaches = () => {
-  cache.dynamic = [...cache.permanent];
+  cache.splice(0, cache.length);
+  wrapperMap.clear();
 };

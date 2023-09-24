@@ -171,9 +171,7 @@ const routes: CubRouteRecordRaw[] = [
   },
 ]
 ```
-:::warning 注意
-必须在页面组件中定义 `name` 属性！，并且保证 `name` 唯一
-:::
+
 #### 对应的目录结构
 ```text
 |———router

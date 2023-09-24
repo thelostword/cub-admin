@@ -3,11 +3,6 @@ import type { Component } from 'vue';
 import type { Router, RouteLocationNormalized } from 'vue-router';
 import type { MenuRecord } from '../typescript';
 
-type Cache = {
-  permanent: string[];
-  dynamic: string[];
-};
-
 type InitState = {
   /**
    * layout 组件
@@ -23,6 +18,7 @@ type InitState = {
    */
   ui?: 'element-plus'
 };
+
 /**
  * 运行前必须要的参数
  */
@@ -31,17 +27,8 @@ export const initState: InitState = {
   router: undefined,
   ui: 'element-plus',
 };
-
 export const tags: RouteLocationNormalized[] = shallowReactive<RouteLocationNormalized[]>([]);
 export const menus: MenuRecord[] = shallowReactive<MenuRecord[]>([]);
 export const subMenus: MenuRecord[] = shallowReactive<MenuRecord[]>([]);
-export const cache: Cache = reactive<Cache>({
-  permanent: [],
-  dynamic: [],
-});
-
-// export default {
-//   tags,
-//   cache,
-//   menus,
-// };
+export const cache: string[] = reactive<string[]>([]);
+export const wrapperMap: Map<string, Component> = new Map();

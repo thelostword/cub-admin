@@ -37,11 +37,12 @@ export function useMixedMenu() {
   watch(menus, matchMenu, { immediate: true });
 
   const onSwitch = (path: string) => {
+    if (topMenuActivePath.value === path) return;
     const menu = menus.find((item) => item.path === path)!;
     const children = menu.children?.length ? menu.children : [menu];
     subMenus.splice(0, subMenus.length, ...children);
     topMenuActivePath.value = menu.path;
-    if (children.length === 1) navigateTo(path);
+    if (children.length === 1) navigateTo(children[0].path);
   };
 
   return {

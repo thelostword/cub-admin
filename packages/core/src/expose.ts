@@ -4,7 +4,7 @@ export * from './utils/tags';
 
 export * from './state/collapse';
 
-export { default as CubTopMenu } from './components/cub-top-menu/cub-top-menu.vue';
+export { default as CubTopMixedMenu } from './components/cub-top-menu/cub-top-mixed-menu.vue';
 // export * from './hooks/use-tags-view';
 
 export { CubInjectionKey } from './layout-provider';

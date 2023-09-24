@@ -4,9 +4,9 @@
       name="fade"
       mode="out-in"
     >
-      <keep-alive :include="cache.dynamic">
+      <keep-alive :include="cache">
         <component
-          :is="Component"
+          :is="wrap(route.fullPath, Component)"
           :key="route.fullPath"
         />
       </keep-alive>
@@ -16,6 +16,7 @@
 
 <script setup lang="ts">
 import { cache } from '../../store';
+import { wrap } from '.';
 </script>
 
 <style lang="scss" scoped>

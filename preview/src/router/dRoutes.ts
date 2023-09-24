@@ -3,6 +3,16 @@ import { Plus } from '@element-plus/icons-vue';
 
 export const routes: CubRouteRecordRaw[] = [
   {
+    path: '/home',
+    component: 'CubLayout',
+    meta: { title: '首页', onlyMenu: true, sort: 0 },
+    children: [
+      {
+        path: 'index', meta: { title: '首页', affix: true, onlyMenu: true },
+      },
+    ],
+  },
+  {
     path: '/demo',
     component: 'CubLayout',
     meta: {

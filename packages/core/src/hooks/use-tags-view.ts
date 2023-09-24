@@ -34,14 +34,15 @@ export const useTagsView = () => {
     const ndx = tags.findIndex(({ path }) => thatRoute.path === path);
 
     removeTag(thatRoute);
-    removeCache(thatRoute);
+    removeCache(thatRoute.fullPath);
     if (isActive(thatRoute)) switchTo(ndx - 1 < 0 ? 0 : ndx - 1);
   };
 
   const onCloseOthers = (route?: RouteLocationNormalized) => {
     const thatRoute = route || currentRoute.value;
     removeOtherTags(thatRoute);
-    removeOtherCaches(thatRoute);
+    if (route?.meta.noCache) clearCaches();
+    else removeOtherCaches(thatRoute.fullPath);
   };
 
   const onCloseAll = () => {
@@ -52,7 +53,7 @@ export const useTagsView = () => {
 
   const onRefresh = () => {
     const { fullPath } = currentRoute.value;
-    removeCache(currentRoute.value);
+    removeCache(fullPath);
     router.replace({
       path: `/redirect/${window.encodeURIComponent(fullPath)}`,
     });

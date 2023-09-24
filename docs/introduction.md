@@ -7,7 +7,7 @@ Cub Admin 是一个中后台系统前端基础库。
 基于 [Vue3](https://vuejs.org) 、[Vue Router](https://router.vuejs.org/)、[Element Plus](https://element-plus.org/)，使用前需掌握其基本用法。
 
 ::: danger 警告：
-本项目处于开发试验阶段，部分功能尚未完善，并且使用方式可能随时变更，文档未及时更新
+本项目处于开发试验阶段，功能尚未完善，并且使用方式可能随时变更，文档未及时更新
 :::
 
 ## 环境
