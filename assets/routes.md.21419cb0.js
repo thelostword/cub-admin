@@ -266,7 +266,7 @@ import{_ as s,o as n,c as a,Q as l}from"./chunks/framework.f74298a7.js";const u=
 <span class="line"><span style="color:#24292E;">      icon: Plus,</span></span>
 <span class="line"><span style="color:#24292E;">    },</span></span>
 <span class="line"><span style="color:#24292E;">  },</span></span>
-<span class="line"><span style="color:#24292E;">]</span></span></code></pre></div><div class="warning custom-block"><p class="custom-block-title">注意</p><p>必须在页面组件中定义 <code>name</code> 属性！，并且保证 <code>name</code> 唯一</p></div><h4 id="对应的目录结构" tabindex="-1">对应的目录结构 <a class="header-anchor" href="#对应的目录结构" aria-label="Permalink to &quot;对应的目录结构&quot;">​</a></h4><div class="language-text vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">text</span><pre class="shiki github-dark vp-code-dark"><code><span class="line"><span style="color:#e1e4e8;">|———router</span></span>
+<span class="line"><span style="color:#24292E;">]</span></span></code></pre></div><h4 id="对应的目录结构" tabindex="-1">对应的目录结构 <a class="header-anchor" href="#对应的目录结构" aria-label="Permalink to &quot;对应的目录结构&quot;">​</a></h4><div class="language-text vp-adaptive-theme"><button title="Copy Code" class="copy"></button><span class="lang">text</span><pre class="shiki github-dark vp-code-dark"><code><span class="line"><span style="color:#e1e4e8;">|———router</span></span>
 <span class="line"><span style="color:#e1e4e8;">└───views</span></span>
 <span class="line"><span style="color:#e1e4e8;">│   │   demo1.vue</span></span>
 <span class="line"><span style="color:#e1e4e8;">│   │   demo2-1.vue</span></span>
@@ -274,4 +274,4 @@ import{_ as s,o as n,c as a,Q as l}from"./chunks/framework.f74298a7.js";const u=
 <span class="line"><span style="color:#24292e;">└───views</span></span>
 <span class="line"><span style="color:#24292e;">│   │   demo1.vue</span></span>
 <span class="line"><span style="color:#24292e;">│   │   demo2-1.vue</span></span>
-<span class="line"><span style="color:#24292e;">|—— ...</span></span></code></pre></div>`,19),e=[o];function c(t,r,E,y,i,F){return n(),a("div",null,e)}const A=s(p,[["render",c]]);export{u as __pageData,A as default};
+<span class="line"><span style="color:#24292e;">|—— ...</span></span></code></pre></div>`,18),e=[o];function c(t,r,E,y,i,F){return n(),a("div",null,e)}const A=s(p,[["render",c]]);export{u as __pageData,A as default};

@@ -1,0 +1,1 @@
+import{_ as s,o as n,c as a,Q as l}from"./chunks/framework.f74298a7.js";const u=JSON.parse('{"title":"动态路由","description":"","frontmatter":{},"headers":[],"relativePath":"routes.md","filePath":"routes.md"}'),p={name:"routes.md"},o=l("",18),e=[o];function c(t,r,E,y,i,F){return n(),a("div",null,e)}const A=s(p,[["render",c]]);export{u as __pageData,A as default};

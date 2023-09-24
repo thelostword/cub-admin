@@ -1,0 +1,1 @@
+import{_ as s,o as n,c as a,Q as l}from"./chunks/framework.f74298a7.js";const g=JSON.parse('{"title":"主题样式","description":"","frontmatter":{},"headers":[],"relativePath":"styles.md","filePath":"styles.md"}'),p={name:"styles.md"},o=l("",7),e=[o];function c(t,r,E,y,i,F){return n(),a("div",null,e)}const C=s(p,[["render",c]]);export{g as __pageData,C as default};
