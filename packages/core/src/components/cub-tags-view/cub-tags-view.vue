@@ -17,8 +17,8 @@
         class="cub-tags-view-item group cub-flex-shrink-0 cub-h-full cub-px-2 cub-py-1 cub-flex cub-items-center cub-justify-center cub-gap-x-1 cub-cursor-pointer cub-select-none"
         :class="isActive(item) ? `before:cub-content-[''] before:cub-inline-block before:cub-w-2 before:cub-h-2 before:cub-bg-white before:cub-rounded-full active` : ''"
         :aria-selected="isActive(item)"
-        @click="router.push(item.fullPath || item.path)"
-        @keyup.enter="router.push(item.fullPath || item.path)"
+        @click="router.push(item.fullPath)"
+        @keyup.enter="router.push(item.fullPath)"
       >
         <span class="cub-text-sm">{{ item.meta?.title }}</span>
         <div

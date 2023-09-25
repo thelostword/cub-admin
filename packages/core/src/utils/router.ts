@@ -1,5 +1,5 @@
 import type { Component } from 'vue';
-import type { RouteRecordRaw } from 'vue-router';
+import type { RouteRecordRaw, RouteRecordName } from 'vue-router';
 import type {
   SetupOptions, CubRouteRecordRaw, CubSubRouteRecordRaw, RegisterOptions, RegisterRoutesOptions, RegisterRoutesModuleName,
 } from '../typescript';
@@ -66,7 +66,7 @@ export const setupCubAdmin = (options: SetupOptions) => {
 // ------------------------- Routes Registration and Unregistration START -----------------------------
 const routesCallStack: { [key: RegisterRoutesModuleName]: (() => void)[] | undefined } = {};
 const defaultRoutesStackName = Symbol();
-let layoutUseCounter = 0;
+let routeAddCounter = 0;
 export const registerRoutes = (...args: RegisterOptions) => new Promise((resolve, reject) => {
   try {
     if (!initState.router || !initState.layout) throw new Error('"setupCubAdmin" method must be called once before getting started!');
@@ -86,18 +86,17 @@ export const registerRoutes = (...args: RegisterOptions) => new Promise((resolve
       }
       return component;
     };
-    const addRoutes = (routes: (CubRouteRecordRaw | CubSubRouteRecordRaw)[], parentName?: string) => {
+    const addRoutes = (routes: (CubRouteRecordRaw | CubSubRouteRecordRaw)[], parentName?: RouteRecordName) => {
       routes.forEach((item) => {
         if (!item.meta?.onlyMenu && item.path && item.component) {
           const component = getComponent(item.component);
           if (!component) throw new Error('Component Not Found, Please Check if the Component Path Configuration is Correct.');
           const route = {
             ...item,
-            name: item.component === 'CubLayout' ? `CubLayout|${layoutUseCounter += 1}` : component.name,
+            name: item.component === 'CubLayout' ? `CubLayout|${routeAddCounter += 1}` : (item.name || `CubRoute|${routeAddCounter += 1}`),
             component,
             children: undefined,
           };
-          if (!route.name) throw new Error('The "name" of the page component must be explicitly defined');
           if (!routesCallStack[name]) routesCallStack[name] = [];
           if (parentName) {
             routesCallStack[name]!.push(initState.router!.addRoute(parentName, route as RouteRecordRaw));

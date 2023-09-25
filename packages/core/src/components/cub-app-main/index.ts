@@ -3,9 +3,9 @@ import type { Component } from 'vue';
 import { wrapperMap } from '../../store';
 
 // reference https://github.com/vuejs/core/pull/4339
-export const wrap = (fullPath: string, component: Component) => {
+export const wrap = (path: string, component: Component) => {
   let wrapper;
-  const wrapperName = fullPath;
+  const wrapperName = path;
   if (wrapperMap.has(wrapperName)) {
     wrapper = wrapperMap.get(wrapperName);
   } else {

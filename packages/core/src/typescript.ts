@@ -44,7 +44,7 @@ type RawRouteComponent = RouteComponent | Lazy<RouteComponent>;
 /**
  * 子路由配置
  */
-export type CubSubRouteRecordRaw = Omit<RouteRecordRaw, 'component' | 'children'>
+export type CubSubRouteRecordRaw = Omit<RouteRecordRaw, 'component' | 'components' | 'children'>
 & ({
   component: string | RawRouteComponent;
   components?: undefined;

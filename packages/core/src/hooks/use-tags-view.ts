@@ -34,7 +34,7 @@ export const useTagsView = () => {
     const ndx = tags.findIndex(({ path }) => thatRoute.path === path);
 
     removeTag(thatRoute);
-    removeCache(thatRoute.fullPath);
+    removeCache(thatRoute.path);
     if (isActive(thatRoute)) switchTo(ndx - 1 < 0 ? 0 : ndx - 1);
   };
 
@@ -42,7 +42,7 @@ export const useTagsView = () => {
     const thatRoute = route || currentRoute.value;
     removeOtherTags(thatRoute);
     if (route?.meta.noCache) clearCaches();
-    else removeOtherCaches(thatRoute.fullPath);
+    else removeOtherCaches(thatRoute.path);
   };
 
   const onCloseAll = () => {
@@ -52,8 +52,8 @@ export const useTagsView = () => {
   };
 
   const onRefresh = () => {
-    const { fullPath } = currentRoute.value;
-    removeCache(fullPath);
+    const { fullPath, path } = currentRoute.value;
+    removeCache(path);
     router.replace({
       path: `/redirect/${window.encodeURIComponent(fullPath)}`,
     });

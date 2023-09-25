@@ -6,8 +6,8 @@
     >
       <keep-alive :include="cache">
         <component
-          :is="wrap(route.fullPath, Component)"
-          :key="route.fullPath"
+          :is="wrap(route.path, Component)"
+          :key="route.path"
         />
       </keep-alive>
     </transition>
