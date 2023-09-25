@@ -9,7 +9,7 @@
 
     <template #headerLeft>
       <!-- <CubBreadcrumb /> -->
-      <CubTopMixedMenu />
+      <!-- <CubTopMixedMenu /> -->
     </template>
 
     <!-- <template #tagsView>
@@ -29,7 +29,7 @@
 </template>
 
 <script setup lang="ts">
-import { CubLayout, CubTopMixedMenu } from '@cub-admin/core';
+import { CubLayout } from '@cub-admin/core';
 import {
   CubFullscreen, CubModeSwitch, CubPrimaryColorChange,
 } from '@cub-admin/components';

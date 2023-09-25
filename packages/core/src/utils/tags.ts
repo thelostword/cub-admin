@@ -21,8 +21,8 @@ export const addTag = (route: RouteLocationNormalized) => {
   } else tags.push(route);
 };
 
-export const removeTag = (route: RouteLocationNormalized) => {
-  if (route.meta?.affix) return;
+export const removeTag = (route: RouteLocationNormalized, force: boolean = false) => {
+  if (route.meta?.affix && !force) return;
   const index = tags.findIndex(({ path }) => path === route.path);
   tags.splice(index >>> 0, 1);
 };

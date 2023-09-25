@@ -17,12 +17,12 @@
         class="cub-tags-view-item group cub-flex-shrink-0 cub-h-full cub-px-2 cub-py-1 cub-flex cub-items-center cub-justify-center cub-gap-x-1 cub-cursor-pointer cub-select-none"
         :class="isActive(item) ? `before:cub-content-[''] before:cub-inline-block before:cub-w-2 before:cub-h-2 before:cub-bg-white before:cub-rounded-full active` : ''"
         :aria-selected="isActive(item)"
-        @click="router.push(item.fullPath)"
-        @keyup.enter="router.push(item.fullPath)"
+        @click="router.push(item.fullPath || item.path)"
+        @keyup.enter="router.push(item.fullPath || item.path)"
       >
         <span class="cub-text-sm">{{ item.meta?.title }}</span>
         <div
-          v-if="!item.meta?.affix"
+          v-if="!(item.meta?.affix || item.meta?.affix === 0)"
           role="button"
           tabindex="0"
           class="cub-flex cub-items-center cub-justify-center cub-py-0.5 cub-w-4 cub-h-4 cub-rounded-full cub-transition-all hover:cub-bg-black hover:cub-bg-opacity-15"
@@ -45,7 +45,7 @@
       </div>
       <template #dropdown>
         <ElDropdownMenu>
-          <ElDropdownItem command="close">
+          <ElDropdownItem command="close" :disabled="!!$route.meta?.affix || $route.meta?.affix === 0">
             关闭本页
           </ElDropdownItem>
           <ElDropdownItem command="close-other">

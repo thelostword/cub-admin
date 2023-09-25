@@ -24,10 +24,6 @@ setTimeout(() => {
   });
 }, 3000);
 
-// setTimeout(() => {
-//   unregisterRoutes('demo');
-// }, 5000);
-
 let register = false;
 router.beforeEach(async (to) => {
   if (!register) {

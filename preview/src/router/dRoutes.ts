@@ -103,7 +103,7 @@ export const routes1: CubRouteRecordRaw[] = [
     },
   },
   {
-    path: '/test',
+    path: '/',
     component: 'CubLayout',
     meta: {
       title: 'test页面',
@@ -117,6 +117,7 @@ export const routes1: CubRouteRecordRaw[] = [
         meta: {
           title: 'Demo1',
           icon: Plus,
+          affix: 1,
         },
       },
       {

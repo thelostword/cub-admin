@@ -1,12 +1,13 @@
 import type { Component } from 'vue';
-import type { RouteRecordRaw, RouteRecordName } from 'vue-router';
+import type { RouteRecordRaw, RouteRecordName, RouteLocationNormalized } from 'vue-router';
 import type {
   SetupOptions, CubRouteRecordRaw, CubSubRouteRecordRaw, RegisterOptions, RegisterRoutesOptions, RegisterRoutesModuleName,
 } from '../typescript';
 import { generateMenus, subductionMenus } from './menus';
 import { basicPages, NotFoundPage } from '../pages';
 import { resolvePath } from './utils';
-import { addTag } from './tags';
+import { addTag, removeTag } from './tags';
+import { removeCache } from './cache';
 import { initState } from '../store';
 
 const BasicRouteName = '__CUB_BASIC_ROUTES__';
@@ -65,6 +66,7 @@ export const setupCubAdmin = (options: SetupOptions) => {
 
 // ------------------------- Routes Registration and Unregistration START -----------------------------
 const routesCallStack: { [key: RegisterRoutesModuleName]: (() => void)[] | undefined } = {};
+const routesPathStack: { [key: RegisterRoutesModuleName]: string[] } = {};
 const defaultRoutesStackName = Symbol();
 let routeAddCounter = 0;
 export const registerRoutes = (...args: RegisterOptions) => new Promise((resolve, reject) => {
@@ -105,6 +107,10 @@ export const registerRoutes = (...args: RegisterOptions) => new Promise((resolve
           }
           if (item.children?.length) addRoutes(item.children, route.name);
         }
+        if (item.path) {
+          if (!routesPathStack[name]) routesPathStack[name] = [];
+          routesPathStack[name].push(item.path);
+        }
       });
     };
     initState.router.removeRoute(NotFoundPage.name!);
@@ -124,6 +130,7 @@ export const registerRoutes = (...args: RegisterOptions) => new Promise((resolve
   }
 });
 
+// TODO 待整理
 export const unregisterRoutes = (name: RegisterRoutesModuleName = defaultRoutesStackName) => {
   subductionMenus(name);
   if (name === '*') {
@@ -135,5 +142,10 @@ export const unregisterRoutes = (name: RegisterRoutesModuleName = defaultRoutesS
   }
   routesCallStack[name]?.forEach((r) => r());
   if (routesCallStack[name]?.length) routesCallStack[name]!.length = 0;
+
+  routesPathStack[name]?.forEach((path) => {
+    removeCache(path);
+    removeTag({ path } as RouteLocationNormalized, true);
+  });
 };
 // ------------------------- Routes Registration and Unregistration END -----------------------------
