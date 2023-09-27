@@ -1,7 +1,12 @@
 import type { Component } from 'vue';
 import type { RouteRecordRaw, RouteRecordName, RouteLocationNormalized } from 'vue-router';
 import type {
-  SetupOptions, CubRouteRecordRaw, CubSubRouteRecordRaw, RegisterOptions, RegisterRoutesOptions, RegisterRoutesModuleName,
+  SetupOptions,
+  CubRouteRecordRaw,
+  CubSubRouteRecordRaw,
+  RegisterOptions,
+  RegisterRoutesOptions,
+  RegisterRoutesModuleName,
 } from '../typescript';
 import { generateMenus, subductionMenus } from './menus';
 import { basicPages, NotFoundPage } from '../pages';
@@ -137,6 +142,11 @@ export const unregisterRoutes = (name: RegisterRoutesModuleName = defaultRoutesS
     Reflect.ownKeys(routesCallStack).forEach((key) => {
       routesCallStack[key]?.forEach((r) => r());
       if (routesCallStack[key]?.length) routesCallStack[key]!.length = 0;
+
+      routesPathStack[key]?.forEach((path) => {
+        removeCache(path);
+        removeTag({ path } as RouteLocationNormalized, true);
+      });
     });
     return;
   }

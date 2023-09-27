@@ -1,34 +1,35 @@
 :root {
-  // 布局宽高
-  --cub-header-height: 50px;
-  --cub-sidebar-width: 200px;
-  --cub-tagsView-height: 38px;
-  --cub-logo-height: var(--cub-header-height);
-
   // page
   --cub-page-bg-color: #f2f3f5;
+  --cub-shadow-color: rgba(0,0,0,.08);
 
   // header
+  --cub-header-height: 50px;
   --cub-header-bg-color: #24292f;
   --cub-header-text-color: white;
 
   // top menu
-  --cub-top-menu-item-hover-bg-color: var(--el-color-primary);
-  --cub-top-menu-item-hover-text-color: white;
-  --cub-top-menu-item-active-bg-color: transparent;
-  --cub-top-menu-item-active-text-color: var(--el-color-primary);
+  --cub-topMenu-item-hover-bg-color: var(--el-color-primary);
+  --cub-topMenu-item-hover-text-color: var(--cub-header-text-color);
+  --cub-topMenu-item-active-bg-color: transparent;
+  --cub-topMenu-item-active-text-color: var(--el-color-primary);
 
   // logo
+  --cub-logo-height: var(--cub-header-height);
   --cub-logo-bg-color: var(--cub-header-bg-color);
   --cub-logo-text-color: var(--cub-header-text-color);
 
   // sidebar
+  --cub-sidebar-width: 200px;
   --cub-sidebar-bg-color: white;
-  --cub-sidebar-shadow-color: rgba(0,0,0,.08);
+
+  // sideMenu
+  --cub-sideMenuBefore-height: 50px;
+  --cub-sideMenuAfter-height: 50px;
 
   // tagsView
+  --cub-tagsView-height: 38px;
   --cub-tagsView-bg-color: white;
-  --cub-tagsView-shadow-color: rgba(0,0,0,.08);
 
   --cub-tagsView-text-color: var(--el-text-color-primary);
   --cub-tagsView-item-bg-color: var(--el-color-info-light-8);
@@ -49,6 +50,7 @@
 html.dark {
   // page
   --cub-page-bg-color: #010409;
+  --cub-shadow-color: rgba(255,255,255,.2);
 
   // header
   --cub-header-bg-color: #010409;
@@ -56,11 +58,9 @@ html.dark {
 
   // sidebar
   --cub-sidebar-bg-color: #0D1117;
-  --cub-sidebar-shadow-color: rgba(255,255,255,.2);
 
   // tagsView
   --cub-tagsView-bg-color: #161b22;
-  --cub-tagsView-shadow-color: rgba(255,255,255,.2);
 
   // section
   --cub-section-bg-color: #161b22;

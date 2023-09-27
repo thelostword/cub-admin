@@ -25,6 +25,14 @@
       <CubPrimaryColorChange />
       <CubFullscreen />
     </template>
+
+    <template #sideMenuBefore>
+      <div class="cub-h-full cub-flex cub-items-center cub-justify-center">
+        <el-button type="primary">
+          XX快捷方式
+        </el-button>
+      </div>
+    </template>
   </CubLayout>
 </template>
 

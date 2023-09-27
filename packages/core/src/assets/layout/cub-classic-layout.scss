@@ -1,30 +1,43 @@
 .cub-classic-layout {
   background-color: var(--cub-page-bg-color);
 
+  // 侧边栏
   .cub-sidebar {
     width: var(--cub-sidebar-width);
-    background-color: var(--el-menu-bg-color);
+    background-color: var(--cub-sidebar-bg-color);
     transition: width .28s var(--cub-transition-timing-function);
 
     &--collapse {
       width: calc(var(--el-menu-icon-width) + var(--el-menu-base-level-padding) * 2);
     }
   }
-  .cub-menu-wrap {
-    width: calc(100% - 2px);
-    background-color: var(--cub-sidebar-bg-color);
-    box-shadow: 2px 0 8px var(--cub-sidebar-shadow-color);
-  }
-  .cub-menu {
-    --el-menu-bg-color: var(--cub-sidebar-bg-color);
-  }
 
+  // logo
   .cub-logo {
     height: var(--cub-logo-height);
     background-color: var(--cub-logo-bg-color);
     color: var(--cub-logo-text-color);
   }
 
+  // 菜单
+  .cub-side-menu {
+    --el-menu-bg-color: var(--cub-sidebar-bg-color);
+  }
+  .cub-side-menu-wrap {
+    width: calc(100% - 2px);
+    box-shadow: 2px 0 8px var(--cub-shadow-color);
+  }
+
+  // 菜单上方空间
+  .cub-side-menu--before {
+    height: var(--cub-sideMenuBefore-height);
+  }
+  // 菜单下方空间
+  .cub-side-menu--before {
+    height: var(--cub-sideMenuAfter-height);
+  }
+
+  // header
   .cub-header {
     width: 100%;
     height: var(--cub-header-height);
@@ -32,15 +45,14 @@
     color: var(--cub-header-text-color);
   }
 
+  // tagsView
   .cub-tags {
     height: calc(var(--cub-tagsView-height) - 2px);
+    box-shadow: 0 2px 8px var(--cub-shadow-color);
     margin-bottom: 2px;
     background-color: var(--cub-tagsView-bg-color);
     color: var(--cub-tagsView-text-color);
-    box-shadow: 0 2px 8px var(--cub-tagsView-shadow-color);
     
-    &-warp {}
-  
     &-view {
       &-item {
         background-color: var(--cub-tagsView-item-bg-color);
@@ -53,6 +65,4 @@
       }
     }
   }
-
-  .cub-main {}
 }

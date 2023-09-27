@@ -1,7 +1,10 @@
 import { cloneDeep } from 'lodash-es';
 import { resolvePath } from './utils';
 import type {
-  MenuRecord, CubRouteRecordRaw, CubSubRouteRecordRaw, RegisterRoutesModuleName,
+  MenuRecord,
+  CubRouteRecordRaw,
+  CubSubRouteRecordRaw,
+  RegisterRoutesModuleName,
 } from '../typescript';
 import { menus } from '../store';
 
@@ -24,7 +27,7 @@ const routeToMenu = (route: CubRouteRecordRaw | CubSubRouteRecordRaw, basePath =
     name: route.meta?.title || path,
     path,
     icon: route.meta?.icon,
-    sort: route.meta?.sort ?? 999,
+    sort: route.meta?.sort ?? Infinity,
     badge: route.meta?.badge,
     children: children.sort((a, b) => a.sort - b.sort),
   };

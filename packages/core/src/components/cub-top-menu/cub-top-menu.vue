@@ -28,12 +28,12 @@ const { topMenuActivePath, onSwitch } = useMixedMenu();
 .cub-top-menu {
   &-item {
     &:hover {
-      background-color: var(--cub-top-menu-item-hover-bg-color);
-      color: var(--cub-top-menu-item-hover-text-color);
+      background-color: var(--cub-topMenu-item-hover-bg-color);
+      color: var(--cub-topMenu-item-hover-text-color);
     }
     &.active {
-      color: var(--cub-top-menu-item-active-text-color);
-      background-color: var(--cub-top-menu-item-active-bg-color);
+      color: var(--cub-topMenu-item-active-text-color);
+      background-color: var(--cub-topMenu-item-active-bg-color);
     }
   }
 }

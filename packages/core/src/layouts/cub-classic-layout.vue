@@ -12,9 +12,13 @@
       </div>
 
       <!-- 侧边导航菜单 -->
-      <slot name="sideMenu">
-        <CubSideMenu />
-      </slot>
+      <div v-if="$slots.sideMenuBefore" class="cub-side-menu--before">
+        <slot name="sideMenuBefore" :is-collapse="isCollapse" />
+      </div>
+      <CubSideMenu :height="`calc(100vh - var(--cub-logo-height)${$slots.sideMenuBefore ? ' - var(--cub-sideMenuBefore-height)' : ''}${$slots.sideMenuAfter ? ' - var(--cub-sideMenuAfter-height)' : ''})`" />
+      <div v-if="$slots.sideMenuAfter" class="cub-side-menu--after">
+        <slot name="sideMenuAfter" :is-collapse="isCollapse" />
+      </div>
     </div>
 
     <div class="cub-flex-1 cub-overflow-hidden">
@@ -67,7 +71,7 @@ const props = withDefaults(defineProps<LayoutProps>(), layoutPropsDefaults);
 provide(CubInjectionKey, layoutProvide);
 
 // eslint-disable-next-line vue/no-setup-props-destructure
-useCache(props.noCache);
+useCache(props.noCache, props.noTagsView);
 
 defineOptions({
   name: 'CubClassicLayout',

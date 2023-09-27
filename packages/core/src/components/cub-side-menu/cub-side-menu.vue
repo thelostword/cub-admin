@@ -1,7 +1,7 @@
 <template>
-  <ElScrollbar height="calc(100vh - var(--cub-logo-height))" wrap-class="cub-menu-wrap" view-class="cub-menu-view">
+  <ElScrollbar :height="height" wrap-class="cub-side-menu-wrap" view-class="cub-side-menu-view">
     <ElMenu
-      class="cub-menu cub-border-none"
+      class="cub-side-menu cub-border-none"
       :collapse="isCollapse"
       :collapse-transition="false"
       :default-active="defaultActive"
@@ -21,6 +21,8 @@ import { isCollapse } from '../../state/collapse';
 import CubSideMenuItem from './cub-side-menu-item.vue';
 import { menus, subMenus } from '../../store';
 import { isMixedMenu } from '../../hooks/use-mixed-menu';
+
+defineProps<{ height: string }>();
 
 const router = useRouter();
 const defaultActive = computed(() => {

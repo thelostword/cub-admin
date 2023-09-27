@@ -27,7 +27,5 @@ import {
 } from 'element-plus';
 import type { MenuRecord } from '../../typescript';
 
-defineProps<{
-  menu: MenuRecord;
-}>();
+defineProps<{ menu: MenuRecord }>();
 </script>
