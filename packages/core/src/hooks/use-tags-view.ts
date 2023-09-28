@@ -48,7 +48,7 @@ export const useTagsView = () => {
   const onCloseAll = () => {
     clearTags();
     clearCaches();
-    if (!currentRoute.value.meta?.affix && typeof currentRoute.value.meta?.affix !== 'number') switchTo(0);
+    if (!currentRoute.value.meta.affix && typeof currentRoute.value.meta.affix !== 'number') switchTo(0);
   };
 
   const onRefresh = () => {

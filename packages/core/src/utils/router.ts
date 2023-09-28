@@ -18,8 +18,8 @@ import { initState } from '../store';
 const BasicRouteName = '__CUB_BASIC_ROUTES__';
 
 // ------------------------- routes 配置处理方法 START -----------------------------
-const flattenRoutes = (routes: (CubRouteRecordRaw | CubSubRouteRecordRaw)[], parentPath: string) => routes.reduce((result: (CubRouteRecordRaw | CubSubRouteRecordRaw)[], route) => {
-  const path = resolvePath(parentPath, route.path);
+const flattenRoutes = (routes: CubSubRouteRecordRaw[], parentPath: string) => routes.reduce((result: CubSubRouteRecordRaw[], route) => {
+  const path = resolvePath(parentPath, route.path || '');
   if (route.children) {
     result.push(...flattenRoutes(route.children, path));
   } else {
@@ -44,6 +44,7 @@ const transformRoutes = (routes: CubRouteRecordRaw[]) => routes.map((route) => f
 export const setupCubAdmin = (options: SetupOptions) => {
   initState.layout = options.layout;
   initState.router = options.router;
+  if (options.maxCacheSize) initState.maxCacheSize = options.maxCacheSize;
 
   if (!initState.layout) throw new Error('The "setupCubAdmin" method is missing the "layout" parameter!');
   if (!initState.router) throw new Error('The "setupCubAdmin" method is missing the "router" parameter!');
@@ -58,12 +59,12 @@ export const setupCubAdmin = (options: SetupOptions) => {
     children: [],
   });
   basicPages.forEach((route) => {
-    initState.router!.addRoute(BasicRouteName, route);
+    initState.router.addRoute(BasicRouteName, route);
   });
   initState.router.addRoute(BasicRouteName, NotFoundPage);
 
   const routes = initState.router.getRoutes();
-  const affixRoutes = routes.filter((route) => route.meta?.affix === true || typeof route.meta?.affix === 'number');
+  const affixRoutes = routes.filter((route) => route.meta.affix === true || typeof route.meta.affix === 'number');
   affixRoutes.forEach((item) => {
     addTag(item as any);
   });
@@ -95,7 +96,7 @@ export const registerRoutes = (...args: RegisterOptions) => new Promise((resolve
     };
     const addRoutes = (routes: (CubRouteRecordRaw | CubSubRouteRecordRaw)[], parentName?: RouteRecordName) => {
       routes.forEach((item) => {
-        if (!item.meta?.onlyMenu && item.path && item.component) {
+        if (!item.meta.onlyMenu && item.path && item.component) {
           const component = getComponent(item.component);
           if (!component) throw new Error('Component Not Found, Please Check if the Component Path Configuration is Correct.');
           const route = {
@@ -106,9 +107,9 @@ export const registerRoutes = (...args: RegisterOptions) => new Promise((resolve
           };
           if (!routesCallStack[name]) routesCallStack[name] = [];
           if (parentName) {
-            routesCallStack[name]!.push(initState.router!.addRoute(parentName, route as RouteRecordRaw));
+            routesCallStack[name]!.push(initState.router.addRoute(parentName, route as RouteRecordRaw));
           } else {
-            routesCallStack[name]!.push(initState.router!.addRoute(route as RouteRecordRaw));
+            routesCallStack[name]!.push(initState.router.addRoute(route as RouteRecordRaw));
           }
           if (item.children?.length) addRoutes(item.children, route.name);
         }
@@ -125,7 +126,7 @@ export const registerRoutes = (...args: RegisterOptions) => new Promise((resolve
     generateMenus(name, allRoutes);
 
     const routes = initState.router.getRoutes();
-    const affixRoutes = routes.filter((route) => route.meta?.affix === true || typeof route.meta?.affix === 'number');
+    const affixRoutes = routes.filter((route) => route.meta.affix === true || typeof route.meta.affix === 'number');
     affixRoutes.forEach((item) => {
       addTag(item as any);
     });

@@ -3,5 +3,5 @@ import { isURL } from '@cub-admin/utils';
 
 export const resolvePath = (basePath: string, path: string) => {
   if (isURL(path)) return path;
-  return resolve(basePath || '', path || '/');
+  return resolve(basePath || '/', path);
 };

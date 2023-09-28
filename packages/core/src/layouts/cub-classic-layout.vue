@@ -71,7 +71,7 @@ const props = withDefaults(defineProps<LayoutProps>(), layoutPropsDefaults);
 provide(CubInjectionKey, layoutProvide);
 
 // eslint-disable-next-line vue/no-setup-props-destructure
-useCache(props.noCache, props.noTagsView);
+useCache(props.noCache);
 
 defineOptions({
   name: 'CubClassicLayout',

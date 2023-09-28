@@ -1,8 +1,10 @@
-import { cache, wrapperMap } from '../store';
+import { cache, wrapperMap, initState } from '../store';
 
 export const addCache = (path: string) => {
-  if (cache.includes(path)) return;
+  const ndx = cache.findIndex((_path) => _path === path);
+  if (ndx !== -1) cache.splice(ndx, 1);
   cache.push(path);
+  if (cache.length > initState.maxCacheSize) wrapperMap.delete(cache.shift()!);
 };
 
 export const removeCache = (path: string) => {

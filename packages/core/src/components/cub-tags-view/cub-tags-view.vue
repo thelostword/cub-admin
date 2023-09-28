@@ -20,9 +20,9 @@
         @click="router.push(item.fullPath || item.path)"
         @keyup.enter="router.push(item.fullPath || item.path)"
       >
-        <span class="cub-text-sm">{{ item.meta?.title }}</span>
+        <span class="cub-text-sm">{{ item.meta.title }}</span>
         <div
-          v-if="!(item.meta?.affix || item.meta?.affix === 0)"
+          v-if="!(item.meta.affix || item.meta.affix === 0)"
           role="button"
           tabindex="0"
           class="cub-flex cub-items-center cub-justify-center cub-py-0.5 cub-w-4 cub-h-4 cub-rounded-full cub-transition-all hover:cub-bg-black hover:cub-bg-opacity-15"
@@ -45,7 +45,7 @@
       </div>
       <template #dropdown>
         <ElDropdownMenu>
-          <ElDropdownItem command="close" :disabled="!!$route.meta?.affix || $route.meta?.affix === 0">
+          <ElDropdownItem command="close" :disabled="!!$route.meta.affix || $route.meta.affix === 0">
             关闭本页
           </ElDropdownItem>
           <ElDropdownItem command="close-other">

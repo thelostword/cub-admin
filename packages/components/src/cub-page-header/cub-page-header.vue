@@ -6,7 +6,7 @@
           <slot name="title" />
         </template>
         <h1 v-else class="cub-text-xl cub-font-bold ">
-          {{ title || $route.meta?.title }}
+          {{ title || $route.meta.title }}
         </h1>
         <slot name="extra" />
       </div>

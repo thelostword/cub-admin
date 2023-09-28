@@ -4,7 +4,7 @@
       name="fade"
       mode="out-in"
     >
-      <keep-alive :include="cache">
+      <keep-alive :include="cache" :max="initState.maxCacheSize">
         <component
           :is="wrap(route.path, Component)"
           :key="route.path"
@@ -15,7 +15,7 @@
 </template>
 
 <script setup lang="ts">
-import { cache } from '../../store';
+import { cache, initState } from '../../store';
 import { wrap } from '.';
 </script>
 

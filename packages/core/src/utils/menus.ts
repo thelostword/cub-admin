@@ -15,20 +15,20 @@ const routeToMenu = (route: CubRouteRecordRaw | CubSubRouteRecordRaw, basePath =
   if (route.children?.length) {
     // if (route.children.length === 1) return routeToMenu(route.children[0], resolvePath(basePath, route.path));
     for (const scope of route.children) {
-      if (!scope.meta?.onlyRoute) {
-        children.push(routeToMenu(scope, resolvePath(basePath, route.path)));
+      if (!scope.meta.onlyRoute) {
+        children.push(routeToMenu(scope, resolvePath(basePath, route.path || '')));
       }
     }
   }
-  let path = resolvePath(basePath, route.path);
+  let path = resolvePath(basePath, route.path || '');
   path = children.length && !route.path ? `${path}|${count += 1}` : path;
 
   return {
-    name: route.meta?.title || path,
+    name: route.meta.title || path,
     path,
-    icon: route.meta?.icon,
-    sort: route.meta?.sort ?? Infinity,
-    badge: route.meta?.badge,
+    icon: route.meta.icon,
+    sort: route.meta.sort ?? Infinity,
+    badge: route.meta.badge,
     children: children.sort((a, b) => a.sort - b.sort),
   };
 };

@@ -1,31 +1,19 @@
 import { reactive, shallowReactive } from 'vue';
 import type { Component } from 'vue';
-import type { Router, RouteLocationNormalized } from 'vue-router';
-import type { MenuRecord } from '../typescript';
+import type { RouteLocationNormalized } from 'vue-router';
+import type { MenuRecord, SetupOptions } from '../typescript';
 
-type InitState = {
-  /**
-   * layout 组件
-   */
-  layout?: Component;
-  /**
-   * router 实例
-   */
-  router?: Router;
-  /**
-   * 要使用的UI库名称
-   * @default "element-plus"
-   */
-  ui?: 'element-plus'
+type SetupOptionsRequired = {
+  [K in keyof SetupOptions]-?: SetupOptions[K];
 };
 
 /**
  * 运行前必须要的参数
  */
-export const initState: InitState = {
-  layout: undefined,
-  router: undefined,
-  ui: 'element-plus',
+export const initState: SetupOptionsRequired = {
+  layout: undefined!,
+  router: undefined!,
+  maxCacheSize: 10,
 };
 export const tags: RouteLocationNormalized[] = shallowReactive<RouteLocationNormalized[]>([]);
 export const menus: MenuRecord[] = shallowReactive<MenuRecord[]>([]);
