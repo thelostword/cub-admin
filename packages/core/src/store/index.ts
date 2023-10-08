@@ -8,7 +8,7 @@ type SetupOptionsRequired = {
 };
 
 /**
- * 运行前必须要的参数
+ * 前置参数
  */
 export const initState: SetupOptionsRequired = {
   layout: undefined!,
