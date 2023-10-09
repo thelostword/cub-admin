@@ -7,9 +7,6 @@ import dts from 'vite-plugin-dts';
 
 // https://vitejs.dev/config/
 export default () => defineConfig({
-  server: {
-    port: 5174,
-  },
   plugins: [
     vue(),
     UnoCSS({
@@ -19,23 +16,16 @@ export default () => defineConfig({
       })],
     }),
     dts({
-      include: [
-        './packages/core/',
-        './packages/components/',
-        './packages/utils/',
-      ],
-      exclude: ['./packages/*/vite.config.ts'],
+      include: ['./'],
+      exclude: ['./vite.config.ts'],
       rollupTypes: true,
     }),
   ],
-
   build: {
     sourcemap: false,
     lib: {
       entry: {
-        core: resolve(__dirname, './packages/core/index.ts'),
-        // components: resolve(__dirname, './packages/components/index.ts'),
-        // utils: resolve(__dirname, './packages/utils/index.ts'),
+        index: resolve(__dirname, './index.ts'),
       },
       formats: ['es', 'cjs'],
     },

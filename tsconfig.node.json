@@ -9,7 +9,6 @@
   "include": [
     "tailwind.config.ts",
     "packages/**/vite.config.ts",
-    "preview/vite.config.ts",
     "vite.config.ts"
   ]
 }

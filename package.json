@@ -46,7 +46,8 @@
     "prepare": "husky install",
     "dev": "pnpm preview dev",
     "build": "vue-tsc && vite build",
-    "preview": "pnpm --filter=preview",
+    "components": "pnpm --filter=@cub-admin/components",
+    "preview": "pnpm --filter=@cub-admin/preview",
     "commit": "git-cz",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
@@ -56,6 +57,7 @@
     "@element-plus/icons-vue": "^2.1.0",
     "@vueuse/core": "^10.4.1",
     "color": "^4.2.3",
+    "cub-admin": "link:",
     "lodash-es": "^4.17.21"
   },
   "devDependencies": {

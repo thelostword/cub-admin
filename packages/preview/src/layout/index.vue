@@ -21,9 +21,9 @@
     </template> -->
 
     <template #headerTools>
-      <CubModeSwitch />
+      <!-- <CubModeSwitch />
       <CubPrimaryColorChange />
-      <CubFullscreen />
+      <CubFullscreen /> -->
     </template>
 
     <template #sideMenuBefore>
@@ -38,9 +38,9 @@
 
 <script setup lang="ts">
 import { CubLayout } from '@cub-admin/core';
-import {
-  CubFullscreen, CubModeSwitch, CubPrimaryColorChange,
-} from '@cub-admin/components';
+// import {
+//   CubFullscreen, CubModeSwitch, CubPrimaryColorChange,
+// } from '@cub-admin/components';
 
 </script>
 
