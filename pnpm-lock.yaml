@@ -17,9 +17,6 @@ importers:
       color:
         specifier: ^4.2.3
         version: 4.2.3
-      cub-admin:
-        specifier: 'link:'
-        version: 'link:'
       lodash-es:
         specifier: ^4.17.21
         version: 4.17.21
@@ -33,9 +30,6 @@ importers:
       '@commitlint/cz-commitlint':
         specifier: ^17.7.1
         version: 17.7.1(commitizen@4.3.0)(inquirer@8.2.6)
-      '@cub-admin/components':
-        specifier: workspace:^
-        version: link:packages/components
       '@cub-admin/core':
         specifier: workspace:^
         version: link:packages/core
@@ -75,9 +69,6 @@ importers:
       husky:
         specifier: ^8.0.3
         version: 8.0.3
-      lexical:
-        specifier: ^0.12.2
-        version: 0.12.2
       lint-staged:
         specifier: ^13.3.0
         version: 13.3.0
@@ -122,8 +113,6 @@ importers:
   packages/preview: {}
 
   packages/utils: {}
-
-  preview: {}
 
 packages:
 
@@ -4014,10 +4003,6 @@ packages:
     dependencies:
       prelude-ls: 1.2.1
       type-check: 0.4.0
-    dev: true
-
-  /lexical@0.12.2:
-    resolution: {integrity: sha512-Kxavd+ETjxtVwG/hvPd6WZfXD44sLOKe9Vlkwxy7lBQ1qZArS+rZfs+u5iXwXe6tX9f2PIM0u3RHsrCEDDE0fw==}
     dev: true
 
   /lilconfig@2.1.0:

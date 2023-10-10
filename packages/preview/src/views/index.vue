@@ -1,6 +1,6 @@
 <template>
   <div class="page1">
-    <CubPageHeader>
+    <!-- <CubPageHeader>
       <template #extra>
         <div class="cub-flex-inline cub-gap-x-2">
           <el-tag type="success">
@@ -17,7 +17,7 @@
           存草稿
         </el-button>
       </template>
-    </CubPageHeader>
+    </CubPageHeader> -->
     <h1 v-for="item in 100" :key="item">
       {{ item }}
     </h1>
@@ -27,7 +27,7 @@
 
 <script setup lang="ts">
 import { onMounted } from 'vue';
-import { CubPageHeader } from '@cub-admin/components';
+// import { CubPageHeader } from '@cub-admin/components';
 
 defineOptions({
   name: 'PageHome',

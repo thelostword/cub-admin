@@ -57,14 +57,12 @@
     "@element-plus/icons-vue": "^2.1.0",
     "@vueuse/core": "^10.4.1",
     "color": "^4.2.3",
-    "cub-admin": "link:",
     "lodash-es": "^4.17.21"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
     "@commitlint/cz-commitlint": "^17.7.1",
-    "@cub-admin/components": "workspace:^",
     "@cub-admin/core": "workspace:^",
     "@cub-admin/utils": "workspace:^",
     "@rushstack/eslint-patch": "^1.4.0",
@@ -78,7 +76,6 @@
     "commitizen": "^4.3.0",
     "element-plus": "^2.3.14",
     "husky": "^8.0.3",
-    "lexical": "^0.12.2",
     "lint-staged": "^13.3.0",
     "path-browserify": "^1.0.1",
     "sass": "^1.68.0",

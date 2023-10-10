@@ -2,7 +2,8 @@ import { ref, readonly } from 'vue';
 import Color from 'color';
 
 const COLOR_STORAGE_KEY = '__cub_admin_primary_color__';
-const historyValue = window.localStorage.getItem(COLOR_STORAGE_KEY) || '#409eff';
+const defaultColor = '#409eff';
+const historyValue = window.localStorage.getItem(COLOR_STORAGE_KEY) || defaultColor;
 
 const originalColor = ref(historyValue);
 export const primaryColor = readonly(originalColor);
@@ -39,3 +40,4 @@ export const setPrimaryColor = (color: string) => {
   originalColor.value = color;
   window.localStorage.setItem(COLOR_STORAGE_KEY, color);
 };
+if (historyValue !== defaultColor) setPrimaryColor(historyValue);

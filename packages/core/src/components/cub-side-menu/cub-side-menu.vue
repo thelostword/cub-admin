@@ -1,5 +1,5 @@
 <template>
-  <ElScrollbar :height="height" wrap-class="cub-side-menu-wrap" view-class="cub-side-menu-view">
+  <ElScrollbar class="cub-h-auto" :height="height" wrap-class="cub-side-menu-wrap" view-class="cub-side-menu-view">
     <ElMenu
       class="cub-side-menu cub-border-none"
       :collapse="isCollapse"

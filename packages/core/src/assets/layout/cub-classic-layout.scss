@@ -14,8 +14,10 @@
 
   // logo
   .cub-logo {
-    height: var(--cub-logo-height);
+    height: calc(var(--cub-logo-height) - 1px);
+    margin-bottom: 2px;
     background-color: var(--cub-logo-bg-color);
+    box-shadow: 0 1px var(--cub-shadow-color);
     color: var(--cub-logo-text-color);
   }
 
@@ -24,31 +26,37 @@
     --el-menu-bg-color: var(--cub-sidebar-bg-color);
   }
   .cub-side-menu-wrap {
-    width: calc(100% - 2px);
-    box-shadow: 2px 0 8px var(--cub-shadow-color);
+    width: calc(100% - 1px);
+    box-shadow: 1px 0 var(--cub-shadow-color);
   }
 
   // 菜单上方空间
   .cub-side-menu--before {
+    width: calc(100% - 1px);
     height: var(--cub-sideMenuBefore-height);
+    box-shadow: 1px 0 var(--cub-shadow-color);
   }
   // 菜单下方空间
-  .cub-side-menu--before {
+  .cub-side-menu--after {
+    width: calc(100% - 1px);
     height: var(--cub-sideMenuAfter-height);
+    box-shadow: 1px 0 var(--cub-shadow-color);
   }
 
   // header
   .cub-header {
     width: 100%;
-    height: var(--cub-header-height);
+    height: calc(var(--cub-header-height) - 1px);
+    margin-bottom: 2px;
     background-color: var(--cub-header-bg-color);
+    box-shadow: 0 1px var(--cub-shadow-color);
     color: var(--cub-header-text-color);
   }
 
   // tagsView
   .cub-tags {
-    height: calc(var(--cub-tagsView-height) - 2px);
-    box-shadow: 0 2px 8px var(--cub-shadow-color);
+    height: calc(var(--cub-tagsView-height) - 1px);
+    box-shadow: 0 1px var(--cub-shadow-color);
     margin-bottom: 2px;
     background-color: var(--cub-tagsView-bg-color);
     color: var(--cub-tagsView-text-color);
