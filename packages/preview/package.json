@@ -9,5 +9,10 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@iconify-json/ic": "^1.1.14",
+    "@iconify-json/material-symbols": "^1.1.60",
+    "@iconify-json/ph": "^1.1.6"
+  }
 }

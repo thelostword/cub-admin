@@ -40,7 +40,7 @@
     <ElDropdown class="cub-mr-1" trigger="click" @command="handleCommand">
       <div class="cub-flex cub-items-center cub-justify-center cub-p-1 cub-rounded hover:cub-bg-black hover:cub-bg-opacity-5 cub-transition-all">
         <ElIcon color="var(--cub-tagsView-text-color)" :size="20">
-          <MoreVertFilled />
+          <MaterialSymbolsMoreVert />
         </ElIcon>
       </div>
       <template #dropdown>
@@ -71,9 +71,9 @@ import { ref, onMounted } from 'vue';
 import {
   ElScrollbar, ElIcon, ElDropdown, ElDropdownItem, ElDropdownMenu,
 } from 'element-plus';
-import { MoreVertFilled } from '@vicons/material';
 import { Close } from '@element-plus/icons-vue';
 import { useRouter } from 'vue-router';
+import MaterialSymbolsMoreVert from 'virtual:icons/material-symbols/more-vert';
 import { tags } from '../../store';
 import { useTagsView } from '../../hooks/use-tags-view';
 

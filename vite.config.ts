@@ -3,6 +3,7 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import UnoCSS from 'unocss/vite';
 import { presetWind } from 'unocss';
+import Icons from 'unplugin-icons/vite';
 import dts from 'vite-plugin-dts';
 
 // https://vitejs.dev/config/
@@ -17,6 +18,9 @@ export default () => defineConfig({
         variablePrefix: '',
         prefix: 'cub-',
       })],
+    }),
+    Icons({
+      autoInstall: true,
     }),
     dts({
       include: [
@@ -40,7 +44,7 @@ export default () => defineConfig({
       formats: ['es', 'cjs'],
     },
     rollupOptions: {
-      external: ['vue', 'vue-router', 'element-plus', '@element-plus/icons-vue', '@vueuse/core', 'lodash-es', 'mitt', 'color'],
+      external: ['vue', 'vue-router', 'element-plus', 'lodash-es', 'color'],
       output: {},
     },
   },

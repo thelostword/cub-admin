@@ -3,6 +3,7 @@
     <ElColorPicker
       label="修改主题色"
       :predefine="predefineColors"
+      :model-value="primaryColor"
       @change="setPrimaryColor($event || predefineColors[0])"
     />
   </div>
@@ -26,7 +27,6 @@ const predefineColors = [
   '#00c0ff',
   '#fb7299',
 ];
-console.log(primaryColor.value);
 </script>
 
 <style lang="scss" scoped>

@@ -21,6 +21,9 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
+    "types": [
+      "unplugin-icons/types/vue",
+    ]
   },
   "include": [
     "packages/**/*.ts",

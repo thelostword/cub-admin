@@ -28,28 +28,26 @@ import {
   ElDropdownItem,
   ElIcon,
 } from 'element-plus';
-import {
-  ComputerFilled,
-  DarkModeFilled,
-  LightModeFilled,
-} from '@vicons/material';
+import MaterialSymbolsComputerOutline from 'virtual:icons/material-symbols/computer-outline';
+import MaterialSymbolsModeNightOutline from 'virtual:icons/material-symbols/mode-night-outline';
+import MaterialSymbolsLightModeOutline from 'virtual:icons/material-symbols/light-mode-outline';
 import { themeMode, setThemeMode } from '@cub-admin/core';
 
 const modeList = [
   {
     name: '跟随系统',
     value: 'system',
-    icon: ComputerFilled,
+    icon: MaterialSymbolsComputerOutline,
   },
   {
     name: '亮色模式',
     value: 'light',
-    icon: LightModeFilled,
+    icon: MaterialSymbolsLightModeOutline,
   },
   {
     name: '暗色模式',
     value: 'dark',
-    icon: DarkModeFilled,
+    icon: MaterialSymbolsModeNightOutline,
   },
 ];
 </script>
