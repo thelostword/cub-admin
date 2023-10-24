@@ -40,6 +40,7 @@ export default defineConfig({
           { text: 'Layouts', link: '/layout' },
           { text: '动态路由', link: '/routes' },
           { text: '主题样式', link: '/styles' },
+          { text: 'API', link: '/api' },
         ]
       },
       {

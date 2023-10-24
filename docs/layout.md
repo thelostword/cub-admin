@@ -26,8 +26,11 @@ import { CubLayout } from 'cub-admin';
 | name | 说明 |
 | --- | --- |
 | logo | 系统logo，参数为 `{ isCollapse }` |
+| sideMenuBefore | 菜单顶部插槽，参数为 `{ isCollapse }` |
+| sideMenuAfter | 菜单底部插槽，参数为 `{ isCollapse }` |
 | headerLeft | header左边插入的内容 |
 | headerTools | header工具栏 |
 | headerRight | header最右边插入的内容，一般放置头像等内容 |
+| tagsView | 自定义tagsView标签栏 |
 | mainBefore | 主内容区之前插入的内容 |
 | mainAfter | 主内容区之后插入的内容 |
