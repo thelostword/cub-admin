@@ -1,0 +1,1 @@
+import{_ as s,o as t,c as a,Q as l}from"./chunks/framework.f74298a7.js";const u=JSON.parse('{"title":"Layouts","description":"","frontmatter":{},"headers":[],"relativePath":"layout.md","filePath":"layout.md"}'),o={name:"layout.md"},n=l("",9),e=[n];function p(r,c,d,i,y,E){return t(),a("div",null,e)}const g=s(o,[["render",p]]);export{u as __pageData,g as default};
