@@ -6,7 +6,7 @@
     >
       <keep-alive :include="cache" :max="initState.maxCacheSize">
         <component
-          :is="wrap(route.path, Component)"
+          :is="route.meta?.noCache ? Component : wrap(route.path, Component)"
           :key="route.path"
         />
       </keep-alive>

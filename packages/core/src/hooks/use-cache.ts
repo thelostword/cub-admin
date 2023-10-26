@@ -4,7 +4,7 @@ import { addCache } from '../utils/cache';
 export function useCache(noCache: boolean) {
   const router = useRouter();
   router.beforeEach((to) => {
-    if (!to.meta.noCache || !noCache) {
+    if (!noCache || !to.meta.noCache) {
       addCache(to.path);
     }
   });

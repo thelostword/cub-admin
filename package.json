@@ -1,12 +1,13 @@
 {
   "name": "cub-admin",
-  "version": "0.0.0-alpha.5",
+  "version": "0.0.0-alpha.6",
   "description": "中后台系统基础库",
   "keywords": [
     "cub-admin",
     "cub-admin-plus",
     "vue-admin",
     "admin",
+    "element-admin",
     "vue",
     "element-plus"
   ],

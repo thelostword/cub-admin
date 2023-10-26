@@ -22,7 +22,7 @@ export const addTag = (route: RouteLocationNormalized) => {
 };
 
 export const removeTag = (route: RouteLocationNormalized, force: boolean = false) => {
-  if (route.meta.affix && !force) return;
+  if (route.meta?.affix && !force) return;
   const index = tags.findIndex(({ path }) => path === route.path);
   tags.splice(index >>> 0, 1);
 };
